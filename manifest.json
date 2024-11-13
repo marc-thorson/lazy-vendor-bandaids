@@ -1,0 +1,58 @@
+{
+    "manifest_version": 3,
+    "name": "Lazy Vendor Bandaids",
+    "version": "1.0",
+    "description": "Custom accessibility fixes for websites from vendors who are too lazy to resolve their issues",
+    "icons": {
+        "16" : "bandaid-16.png",
+        "48" : "bandaid-48.png",
+        "128" : "bandaid-128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://acd.na4.livevox.com/*AgentLogin*",
+				"*://acd.na4.livevox.com/login/auth"
+            ],
+            "js": [
+                "livevox-login.js"
+            ],
+            "css": [
+                "focus.css",
+                "livevox.css"
+            ],
+            "all_frames" : true,
+            "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "*://acd.na4.livevox.com/*/AgentDesktop.html",
+				"*://acd.na4.livevox.com/*/agentHCI"
+            ],
+            "js": [
+                "livevox-desktop.js"
+            ],
+            "css": [
+                "focus.css",
+                "livevox.css"
+            ],
+            "all_frames" : true,
+            "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "*://sso.nelnet.com/idp/SSO.saml2",
+				"*://sso.nelnet.com/ext/pwdchange/*",
+				"*://sso.nelnet.com/ext/pwdreset/*"
+            ],
+            "js": [
+                "ping-signon.js"
+            ],
+			"css": [
+                "ping-focus.css"
+            ],
+            "all_frames" : true,
+            "run_at": "document_end"
+        }
+    ]
+}

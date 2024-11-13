@@ -1,0 +1,4 @@
+a:focus, button:focus, input[type=submit]:focus, *:focus {
+    outline: 2px solid orange !important;
+    outline-offset: 0.125rem !important;
+}
